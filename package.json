@@ -1,0 +1,12 @@
+{
+  "name": "ramp-agent",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ramp-Agent multi-agent orchestration scaffold for Claude and VS Code agent workflows.",
+  "scripts": {
+    "validate": "node scripts/validate-ramp-agent.js"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}

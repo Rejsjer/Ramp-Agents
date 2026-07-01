@@ -1,0 +1,44 @@
+{
+  "version": "1.0",
+  "rampAgentConfig": {
+    "name": "Ramp-Agent Multi-Agent System",
+    "mode": "auto-mode-with-approvals",
+    "maxConcurrentSessions": 4,
+    "maxConcurrentSubAgents": null,
+    "memoryManagement": {
+      "sharedMemoryFile": "./memory/CLAUDE.md",
+      "loadOnStartup": true,
+      "autoUpdateInterval": 300000,
+      "compactionThreshold": 0.35
+    },
+    "usageTracking": {
+      "enabled": true,
+      "trackingFile": "./tracking/usage-stats.json",
+      "aggregationInterval": 60000
+    },
+    "hooks": {
+      "preToolUse": "./hooks/pre-tool-use.js",
+      "postToolUse": "./hooks/post-tool-use.js",
+      "agentStop": "./hooks/agent-stop-hook.js",
+      "sessionStart": "./hooks/session-start-hook.js",
+      "sessionEnd": "./hooks/session-end-hook.js",
+      "feedbackLoop": "./hooks/feedback-loop.js"
+    },
+    "planMode": {
+      "enabled": true,
+      "requiresForMajorFeatures": true,
+      "questioningTemplate": "./workflows/plan-mode-template.md"
+    },
+    "workflowCodeification": {
+      "enabled": true,
+      "storageLocation": "./workflows/",
+      "autoDetectRepeatedPatterns": true
+    }
+  },
+  "permissionsFile": "./config/permissions.json",
+  "skillsRegistry": "./skills/registry.json",
+  "agents": {
+    "defaultAgent": "general-purpose",
+    "agentsDirectory": "./agents/"
+  }
+}

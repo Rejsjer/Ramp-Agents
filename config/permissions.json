@@ -1,0 +1,67 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-07-01",
+  "description": "Pre-approved safe commands for auto-mode execution",
+  "autoApprovalEnabled": true,
+  "approvalThreshold": 35,
+  
+  "approvedCommands": {
+    "filesystem": [
+      "list_dir",
+      "read_file",
+      "create_file",
+      "create_directory",
+      "file_search",
+      "grep_search"
+    ],
+    "editing": [
+      "replace_string_in_file",
+      "multi_replace_string_in_file",
+      "edit_notebook_file"
+    ],
+    "git": [
+      "git status",
+      "git checkout",
+      "git branch",
+      "git log"
+    ],
+    "memory": [
+      "memory_view",
+      "memory_create",
+      "memory_update"
+    ]
+  },
+  
+  "requiresApproval": {
+    "description": "Commands requiring explicit approval or permission list update",
+    "commands": [
+      "run_in_terminal",
+      "run_playwright_code",
+      "kill_terminal",
+      "install_extension",
+      "delete_files"
+    ]
+  },
+  
+  "blockedCommands": {
+    "description": "Commands never auto-approved",
+    "commands": [
+      "delete_all",
+      "format_disk",
+      "system_shutdown"
+    ]
+  },
+  
+  "sessionLimits": {
+    "maxParallelUserSessions": 4,
+    "maxParallelSubAgents": null,
+    "maxAgentsPerSession": 1,
+    "commandTimeoutMs": 300000,
+    "memoryCompactionThreshold": 0.35,
+    "subAgentOrchestration": {
+      "enabled": true,
+      "autoScaling": true,
+      "description": "Claude can spawn unlimited sub-agents internally without session cap"
+    }
+  }
+}
